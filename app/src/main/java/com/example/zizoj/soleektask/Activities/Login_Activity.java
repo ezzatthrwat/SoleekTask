@@ -105,6 +105,7 @@ public class Login_Activity extends AppCompatActivity {
     public void singupBtn(View view) {
 
         startActivity(new Intent(Login_Activity.this , Register_Activity.class));
+
     }
 
     public void ForgetPassword(View view) {

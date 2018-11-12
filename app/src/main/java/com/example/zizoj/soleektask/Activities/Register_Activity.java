@@ -1,6 +1,5 @@
 package com.example.zizoj.soleektask.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -145,7 +144,6 @@ public class Register_Activity extends AppCompatActivity {
 
     public void loginTxt(View view) {
 
-        startActivity(new Intent(Register_Activity.this, Login_Activity.class));
 
         finish();
     }
