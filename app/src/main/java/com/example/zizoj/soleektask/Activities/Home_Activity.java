@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zizoj.soleektask.R;
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 
-public class Home_Activity extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity implements  CountriesListAdpter.OnCountryItemListener{
 
     private FirebaseAuth mFirebaseAuth;
 
@@ -36,6 +37,8 @@ public class Home_Activity extends AppCompatActivity {
     CountriesListAdpter countriesListAdpter;
 
     ProgressBar progressBar;
+
+    TextView countryName;
 
 
     @Override
@@ -62,7 +65,13 @@ public class Home_Activity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         CountriesrecyclerView.setLayoutManager(layoutManager);
 
+
         progressBar = findViewById(R.id.HomeActivityProgressBar);
+
+
+        countryName = findViewById(R.id.CountryName);
+
+
 
     }
 
@@ -95,6 +104,8 @@ public class Home_Activity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.GONE);
 
+                countriesListAdpter.setOnCountryItemListener(Home_Activity.this);
+
             }
 
             @Override
@@ -110,6 +121,15 @@ public class Home_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onCountryListItemSelected(int item) {
+
+        if (CountriesList != null){
+            String CountryString = CountriesList.get(item).getName();
+            countryName.setText(CountryString);
+            Toast.makeText(this,CountryString, Toast.LENGTH_SHORT).show();
+        }
+    }
 }
 
 

@@ -20,7 +20,8 @@
             android:fontFamily="cursive"
             android:padding="20dp"
             android:text="Countries"
-            android:textSize="60dp" />
+            android:textSize="60dp"
+            android:id="@+id/CountryName"/>
 
 
 
